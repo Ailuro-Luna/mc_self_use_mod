@@ -104,8 +104,19 @@ public class ModBlocks {
     @SideOnly(Side.CLIENT)
     private static void registerBlockModel(Block block) {
         Item item = Item.getItemFromBlock(block);
-        ModelLoader.setCustomModelResourceLocation(item, 0,
-                new ModelResourceLocation(block.getRegistryName(), "inventory"));
+        ResourceLocation registryName = block.getRegistryName();
+        
+        if (registryName != null) {
+            String modId = registryName.getResourceDomain();  // 1.12.2 中正确的方法
+            String blockName = registryName.getResourcePath();  // 1.12.2 中正确的方法
+            
+            // 使用与Python脚本生成的资源文件格式匹配的路径
+            ModelLoader.setCustomModelResourceLocation(item, 0,
+                    new ModelResourceLocation(
+                        BlockStorageMod.MODID + ":" + modId + "_" + blockName, 
+                        "inventory"
+                    ));
+        }
     }
 
     /**
@@ -115,11 +126,19 @@ public class ModBlocks {
     @SideOnly(Side.CLIENT)
     private static void registerBlockCustomModel(BlockCustom block) {
         Item item = Item.getItemFromBlock(block);
-        ModelLoader.setCustomModelResourceLocation(item, 0,
-                new ModelResourceLocation(block.getRegistryName(), "inventory"));
+        ResourceLocation registryName = block.getRegistryName();
         
-        // 在这里，你应该为自定义方块生成JSON模型文件，或者实现自定义的IBlockState和IBakedModel
-        // 这超出了本回答的范围，但你可以查看Forge的文档以了解更多信息
+        if (registryName != null) {
+            String modId = registryName.getResourceDomain();  // 1.12.2 中正确的方法
+            String blockName = registryName.getResourcePath();  // 1.12.2 中正确的方法
+            
+            // 使用与Python脚本生成的资源文件格式匹配的路径
+            ModelLoader.setCustomModelResourceLocation(item, 0,
+                    new ModelResourceLocation(
+                        BlockStorageMod.MODID + ":" + modId + "_" + blockName, 
+                        "inventory"
+                    ));
+        }
     }
 
     /**
