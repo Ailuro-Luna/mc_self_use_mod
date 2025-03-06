@@ -19,6 +19,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.example.blockstorage.util.LogHelper;
+
 @Mod.EventBusSubscriber(modid = BlockStorageMod.MODID)
 public class ModBlocks {
 
@@ -29,9 +31,9 @@ public class ModBlocks {
     private static final Map<String, Map<String, Block>> BLOCK_PACKAGES = new HashMap<String, Map<String, Block>>();
 
     // 预定义16个包名，方便分类管理
-    private static final String[] PACKAGES = new String[] { "ic2", "buildcraft", "forestry", "thermal", "applied",
-            "railcraft", "mekanism", "immersive", "redpower", "enderio", "extra", "computercraft", "gregtech", "thaumcraft",
-            "botania", "custom" };
+    private static final String[] PACKAGES = new String[] { "bamboo", "customnpcs", "flansmod", "harvestcraft", "ic2",
+            "jojobadv", "moreplayermodels", "mw", "nuclearcontrol", "railcraft", "shincolle", "tf", "thaumcraft", "thkaguyamod",
+            "twilightforest" };
 
     public static void preInit() {
         // 初始化包集合
@@ -60,9 +62,24 @@ public class ModBlocks {
      */
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        LogHelper.info("Registering " + BLOCKS.size() + " blocks to the game registry");
+        
         // 注册所有准备好的方块
         for (Block block : BLOCKS.values()) {
             event.getRegistry().register(block);
+            
+            // 尝试从注册名中提取modId和blockName
+            ResourceLocation registryName = block.getRegistryName();
+            if (registryName != null) {
+                String modId = registryName.getResourceDomain();
+                String blockName = registryName.getResourcePath();
+                
+                // 记录方块注册信息（带纹理）
+                // 使用-1作为blockID表示这是在注册阶段记录的
+                LogHelper.logBlockRegistration(modId, blockName, -1, block);
+                
+                LogHelper.logBlockJsonFiles(modId, blockName);
+            }
         }
     }
 
@@ -165,6 +182,9 @@ public class ModBlocks {
     public static Block prepareBlockWithID(String packageName, String blockName, Block block, int blockID) {
         // 记录方块和ID的映射关系 (仅用于参考)
         System.out.println("Prepared block: " + blockName + " with reference ID: " + blockID);
+        
+        // 记录到日志文件，包含方块对象以获取纹理信息
+        LogHelper.logBlockRegistration(packageName, blockName, blockID, block);
         
         return prepareBlock(packageName, blockName, block);
     }

@@ -7,6 +7,8 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+import com.example.blockstorage.util.LogHelper;
+
 @Mod(modid = BlockStorageMod.MODID, name = BlockStorageMod.NAME, version = BlockStorageMod.VERSION)
 public class BlockStorageMod {
 
@@ -16,6 +18,10 @@ public class BlockStorageMod {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+    	// 初始化日志系统
+        LogHelper.initBlockLogger();
+        LogHelper.info("Initializing " + NAME + " version " + VERSION);
+        
         // 初始化并注册所有方块
         ModBlocks.preInit();
     }
