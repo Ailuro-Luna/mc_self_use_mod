@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "thaumcraft:block/taint_spore_stalk_1"
+        }
+    }
+}

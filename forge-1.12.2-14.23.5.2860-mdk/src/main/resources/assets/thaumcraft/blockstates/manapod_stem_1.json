@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "thaumcraft:block/manapod_stem_1"
+        }
+    }
+}

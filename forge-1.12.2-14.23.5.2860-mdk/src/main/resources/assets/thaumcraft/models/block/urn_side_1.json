@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "thaumcraft:blocks/urn_side_1"
+    }
+}

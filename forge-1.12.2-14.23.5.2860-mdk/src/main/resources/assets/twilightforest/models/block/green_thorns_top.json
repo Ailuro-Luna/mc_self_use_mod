@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "twilightforest:blocks/green_thorns_top"
+    }
+}

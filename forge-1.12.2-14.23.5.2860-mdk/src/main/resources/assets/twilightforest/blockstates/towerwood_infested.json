@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "twilightforest:block/towerwood_infested"
+        }
+    }
+}

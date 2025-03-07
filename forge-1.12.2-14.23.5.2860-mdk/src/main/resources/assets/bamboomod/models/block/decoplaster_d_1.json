@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "bamboo:blocks/decoplaster_d_1"
+    }
+}

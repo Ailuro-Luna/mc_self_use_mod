@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "thaumcraft:block/urn_side_1"
+        }
+    }
+}

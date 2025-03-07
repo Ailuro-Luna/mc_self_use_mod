@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "harvestcraft:block/sunflowercrop_3"
+        }
+    }
+}

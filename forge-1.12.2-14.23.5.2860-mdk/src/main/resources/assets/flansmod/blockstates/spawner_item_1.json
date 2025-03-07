@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "flansmod:block/spawner_item_1"
+        }
+    }
+}

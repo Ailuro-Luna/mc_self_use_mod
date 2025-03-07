@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "twilightforest:block/pedestal_urghast_active"
+        }
+    }
+}

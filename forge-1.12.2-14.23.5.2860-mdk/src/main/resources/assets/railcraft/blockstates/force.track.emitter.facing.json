@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "railcraft:block/force.track.emitter.facing"
+        }
+    }
+}

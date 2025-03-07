@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "bamboo:blocks/tomato_stage_1"
+    }
+}

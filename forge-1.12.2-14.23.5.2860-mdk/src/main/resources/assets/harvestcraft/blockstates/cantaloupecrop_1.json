@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "harvestcraft:block/cantaloupecrop_1"
+        }
+    }
+}

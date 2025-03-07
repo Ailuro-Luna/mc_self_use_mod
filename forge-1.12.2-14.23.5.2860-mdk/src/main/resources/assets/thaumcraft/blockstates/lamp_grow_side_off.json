@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "thaumcraft:block/lamp_grow_side_off"
+        }
+    }
+}

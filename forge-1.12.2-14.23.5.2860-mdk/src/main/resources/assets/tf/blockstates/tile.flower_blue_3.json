@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "tf:block/tile.flower_blue_3"
+        }
+    }
+}
